@@ -1,4 +1,3 @@
-`timescale 1ns/1ps
 `default_nettype none
 
 module dice_dff_t_clkq_setup_measure
@@ -35,6 +34,8 @@ module dice_dff_t_clkq_setup_measure
     endgenerate
 
 // Counter
+    logic measuring;
+    
     always_ff @(posedge clk or negedge rst_n)
         if (!rst_n)
             begin

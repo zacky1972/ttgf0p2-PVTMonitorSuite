@@ -36,7 +36,7 @@ pinout:
   ui[4]: "target_clock"
   ui[5]: "select[0]"
   ui[6]: "select[1]"
-  ui[7]: ""
+  ui[7]: "select[2]"
 
   # Outputs
   uo[0]: "inv_ring_osc_signal"

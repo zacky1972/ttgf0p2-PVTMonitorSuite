@@ -63,10 +63,15 @@ module tt_um_zacky1972_PVTMonitorSuite
   assign skew_code[7] = 1'b0;
   
   always_comb
-    case (ui_in[6:5])
-      2'b00: uio_out = dff_measured_cnt;
-      2'b01: uio_out = skew_code;
-      default: uio_out = dice_dff_measured_cnt;
+    case (ui_in[7:5])
+      3'b000: uio_out = dff_measured_cnt;
+      3'b001: uio_out = dice_dff_measured_cnt;
+      3'b010: uio_out = dff_measured_cnt;
+      3'b011: uio_out = dice_dff_measured_cnt;
+      3'b100: uio_out = skew_code;
+      3'b101: uio_out = skew_code;
+      3'b110: uio_out = skew_code;
+      3'b111: uio_out = skew_code;
     endcase
 
   // Unused outputs must be tied
@@ -74,6 +79,6 @@ module tt_um_zacky1972_PVTMonitorSuite
   assign uio_oe      = 8'b1111_1111;
 
   // List all unused inputs to prevent warnings
-  assign uo_out[7] = &({ui_in[7:6], uio_in});
+  assign uo_out[7] = &({uio_in});
 
 endmodule
