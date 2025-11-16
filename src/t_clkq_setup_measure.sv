@@ -26,9 +26,9 @@ module t_clkq_setup_measure
  * Each stage propagates the signal sequentially to create measurable delay.
  */
 
-    logic [N-1:0] dff_chain;
-    logic [N-1:0] nand_buf1;
-    logic [N-1:0] nand_buf2;
+    (* keep = "true", dont_touch = "true" *) logic [N-1:0] dff_chain;
+    (* keep = "true", dont_touch = "true" *) logic [N-1:0] nand_buf1;
+    (* keep = "true", dont_touch = "true" *) logic [N-1:0] nand_buf2;
 
 // Free-running counter to measure elapsed clock cycles.
 
