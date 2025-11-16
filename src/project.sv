@@ -46,7 +46,7 @@ module tt_um_zacky1972_PVTMonitorSuite
   t_skew_tt #(.STAGES(64)) dut4
   (
     .clk_a(ui_in[1]),
-    .clk_b(clk),
+    .clk_b(ui_in[5]),
     .rst_n(ui_in[2]),
     .skew_code(skew_code[6:0])
   );
@@ -59,6 +59,6 @@ module tt_um_zacky1972_PVTMonitorSuite
   assign uio_oe      = 8'b1111_1111;
 
   // List all unused inputs to prevent warnings
-  assign uo_out[7] = &(ui_in[7:5]);
+  assign uo_out[7] = &(ui_in[7:6]);
 
 endmodule

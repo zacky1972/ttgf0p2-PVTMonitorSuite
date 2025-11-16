@@ -52,6 +52,7 @@ To meet TinyTapeout’s requirements, no standard cells from the GF180MCU D proc
 ### Measure $t_{skew}$
 
 1. Connect `ui_in[1]` to the oscillator that generates exactly 50 MHz.
+2. Connect `ui_in[5]` to the oscillator of the target clock.
 2. Turn off `ui_in[4]` to choose measurement of $t_{skew}$.
 3. Turn off `ui_in[2]` to reset.
 4. Turn on `ui_in[2]` to start.
@@ -62,4 +63,4 @@ To meet TinyTapeout’s requirements, no standard cells from the GF180MCU D proc
 
 * An equipment to measure frequency.
 * An oscillator that generates exactly 50 MHz.
-* An oscillator that generates the measurement target clock.
+* An oscillator that generates the target clock.
