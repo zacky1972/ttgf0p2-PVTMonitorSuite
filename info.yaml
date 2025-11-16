@@ -21,6 +21,7 @@ project:
     - "inv_ring_osc.sv"
     - "nand2_ring_osc.sv"
     - "t_clkq_setup_measure.sv"
+    - "t_skew_tt.sv"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
@@ -30,7 +31,7 @@ pinout:
   ui[1]: "measurement_clock"
   ui[2]: "reset_counter_n"
   ui[3]: "d_input"
-  ui[4]: ""
+  ui[4]: "select_clkq_setup_or_skew"
   ui[5]: ""
   ui[6]: ""
   ui[7]: ""

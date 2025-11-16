@@ -18,6 +18,10 @@ module tt_um_zacky1972_PVTMonitorSuite
     input  logic       rst_n     // reset_n - low to reset
 );
 
+  logic[7:0] measured_cnt;
+  logic[7:0] skew_code;
+  logic clk_a;
+
   // Use the ring oscillator
   inv_ring_osc dut1
   (
@@ -36,14 +40,25 @@ module tt_um_zacky1972_PVTMonitorSuite
     .clk(ui_in[1]),
     .rst_n(ui_in[2]),
     .start(ui_in[3]),
-    .measured_cnt(uio_out)
+    .measured_cnt(measured_cnt)
   );
+
+  t_skew_tt #(.STAGES(64)) dut4
+  (
+    .clk_a(ui_in[1]),
+    .clk_b(clk),
+    .rst_n(ui_in[2]),
+    .skew_code(skew_code[6:0])
+  );
+
+  assign skew_code[7] = 1'b0;
+  assign uio_out = (ui_in[4]) ? measured_cnt : skew_code;
 
   // Unused outputs must be tied
   assign uo_out[6:2] = 5'b0;
   assign uio_oe      = 8'b1111_1111;
 
   // List all unused inputs to prevent warnings
-  assign uo_out[7] = &(ui_in[7:4]);
+  assign uo_out[7] = &(ui_in[7:5]);
 
 endmodule
