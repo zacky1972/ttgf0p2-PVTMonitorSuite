@@ -33,6 +33,7 @@ module t_clkq_setup_measure
 // Free-running counter to measure elapsed clock cycles.
 
     logic [CNT_WIDTH-1:0] counter;
+    logic measuring;
 
 // Sequential logic: delay chain update and counter increment.
 
@@ -67,11 +68,26 @@ module t_clkq_setup_measure
 // Counter
     always_ff @(posedge clk or negedge rst_n)
         if (!rst_n)
-            counter <= {CNT_WIDTH{1'b0}};
-        else
-            counter <= counter + 1'b1;
-
-    assign measured_cnt = counter;
+            begin
+                counter <= {CNT_WIDTH{1'b0}};
+                measured_cnt <= {CNT_WIDTH{1'b0}};
+                measuring <= 0;
+            end
+        else if (start)
+            begin
+                counter <= {CNT_WIDTH{1'b0}};
+                measured_cnt <= {CNT_WIDTH{1'b0}};
+                measuring <= 1;
+            end
+        else if (measuring)
+            begin
+                counter <= counter + 1'b1;
+                if (dff_chain[N - 1])
+                    begin
+                        measured_cnt <= counter;
+                        measuring <= 0;
+                    end
+            end
 endmodule
 
 
