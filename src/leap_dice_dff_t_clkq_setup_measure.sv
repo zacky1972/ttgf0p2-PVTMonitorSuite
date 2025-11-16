@@ -5,7 +5,7 @@
 
 `default_nettype none
 
-module dice_dff_t_clkq_setup_measure
+module leap_dice_dff_t_clkq_setup_measure
 #(
     parameter integer N = 16,
     parameter integer CNT_WIDTH = 8
@@ -20,7 +20,7 @@ module dice_dff_t_clkq_setup_measure
     logic [N-1:0] dff_chain;
     logic [CNT_WIDTH-1:0] counter;
 
-    dice_dff u_dff (
+    leap_dice_dff u_dff (
         .clk(clk),
         .rst_n(rst_n),
         .d(start ? 0 : dff_chain[N - 1]),
@@ -30,7 +30,7 @@ module dice_dff_t_clkq_setup_measure
     genvar i;
     generate
         for (i = 1; i < N; i=i+1)            
-            dice_dff u_dff (
+            leap_dice_dff u_dff (
                 .clk(clk),
                 .rst_n(rst_n),
                 .d(start ? 0 : dff_chain[i - 1]),

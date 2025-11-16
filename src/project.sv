@@ -21,6 +21,7 @@ module tt_um_zacky1972_PVTMonitorSuite
   logic[7:0] dff_measured_cnt;
   logic[7:0] skew_code;
   logic[7:0] dice_dff_measured_cnt;
+  logic[7:0] leap_dice_dff_measured_cnt;
   logic clk_a;
 
   // Use the ring oscillator
@@ -60,6 +61,14 @@ module tt_um_zacky1972_PVTMonitorSuite
     .measured_cnt(dice_dff_measured_cnt)
   );
 
+  leap_dice_dff_t_clkq_setup_measure dut6
+  (
+    .clk(ui_in[1]),
+    .rst_n(ui_in[2]),
+    .start(ui_in[3]),
+    .measured_cnt(leap_dice_dff_measured_cnt)
+  );
+
   assign skew_code[7] = 1'b0;
   
   always_comb
@@ -67,7 +76,7 @@ module tt_um_zacky1972_PVTMonitorSuite
       3'b000: uio_out = dff_measured_cnt;
       3'b001: uio_out = dice_dff_measured_cnt;
       3'b010: uio_out = dff_measured_cnt;
-      3'b011: uio_out = dice_dff_measured_cnt;
+      3'b011: uio_out = leap_dice_dff_measured_cnt;
       3'b100: uio_out = skew_code;
       3'b101: uio_out = skew_code;
       3'b110: uio_out = skew_code;

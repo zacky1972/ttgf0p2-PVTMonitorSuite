@@ -60,6 +60,17 @@ To meet TinyTapeout’s requirements, no standard cells from the GF180MCU D proc
 7. Read `uio`.
 8. Calculate $t_{clkq} + t_{setup} = \frac{uio \times 20}{16}$.
 
+### Measure $t_{clkq} + t_{setup}$ of Leap DICE D-FF
+
+1. Connect `ui_in[1]` to the oscillator that generates exactly 50 MHz.
+2. Set `ui_in[7:5]` to 3'b011, to choose measurement of $t_{clkq} + t_{setup}$.
+3. Turn off `ui_in[3]`.
+4. Turn off `ui_in[2]` to reset.
+5. Turn on `ui_in[2]`.
+6. Turn on `ui_in[3]` to start.
+7. Read `uio`.
+8. Calculate $t_{clkq} + t_{setup} = \frac{uio \times 20}{16}$.
+
 ### Measure $t_{skew}$
 
 1. Connect `ui_in[1]` to the oscillator that generates exactly 50 MHz.

@@ -24,6 +24,8 @@ project:
     - "t_skew_tt.sv"
     - "dice_dff.sv"
     - "dice_dff_t_clkq_setup_measure.sv"
+    - "leap_dice_dff.sv"
+    - "leap_dice_dff_t_clkq_setup_measure.sv"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
