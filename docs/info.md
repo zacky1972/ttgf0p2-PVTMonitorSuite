@@ -9,7 +9,18 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+PVTMonitorSuite integrates ring oscillators and flip-flop-based measurement circuits to quantify the timing characteristics of digital logic.
+
+The suite supports the following measurements:
+
+* An Inverter-based ring oscillator provides high-resolution estimates of gate propagation delay ($t_{pd}$).
+* A NAND2-based ring oscillator provides high-resolution estimates of logic delay ($t_{logic}$) of NAND2.
+* Standard, DICE, LEAP-DICE, and Quatro D flip-flops measure clock-to-Q and setup timing ($t_{clkq} + t_{setup}$).
+* Clock skew timing ($t_{skew}$) is determined using XOR-based pulse width detection between two clock signals.
+
+High-speed counters driven by the ring oscillators convert these delays into digital values, enabling precise evaluation of process, voltage, and temperature variations on a fully digital, open-access platform.
+
+To meet TinyTapeout’s requirements, no standard cells from the GF180MCU D process are used, and the design passes all strict error and warning checks.
 
 ## How to test
 
