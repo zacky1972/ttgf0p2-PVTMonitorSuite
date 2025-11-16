@@ -25,14 +25,14 @@ module t_skew_tt #(
         for (i = 0; i < STAGES; i++)
             begin : gen_delay
                 // two inverters to stabilize optimization
-                wire d;
-                (* keep = "true", dont_touch = "true" *) assign d        = ~chain[i];
-                (* keep = "true", dont_touch = "true" *) assign chain[i+1] = ~d;
+                (* keep = "true", dont_touch = "true" *) wire d;
+                assign d = ~chain[i];
+                assign chain[i+1] = ~d;
             end
     endgenerate
 
 // sample with clk_b
-    always_ff @(posedge clk_b)
+    always_ff @(posedge clk_b or negedge rst_n)
         if (!rst_n)
             sampled <= 0;
         else
