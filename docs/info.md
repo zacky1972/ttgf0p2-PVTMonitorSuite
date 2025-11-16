@@ -14,7 +14,7 @@ PVTMonitorSuite integrates ring oscillators and flip-flop-based measurement circ
 The suite supports the following measurements:
 
 * An Inverter-based ring oscillator provides high-resolution estimates of gate propagation delay ($t_{pd}$).
-* A NAND2-based ring oscillator provides high-resolution estimates of logic delay ($t_{logic}$) of NAND2.
+* A NAND2-based ring oscillator provides high-resolution estimates of logic delay ($t_{pd}$) of NAND2.
 * Standard, DICE, LEAP-DICE, and Quatro D flip-flops measure clock-to-Q and setup timing ($t_{clkq} + t_{setup}$).
 * Clock skew timing ($t_{skew}$) is determined using XOR-based pulse width detection between two clock signals.
 
@@ -24,8 +24,31 @@ To meet TinyTapeout’s requirements, no standard cells from the GF180MCU D proc
 
 ## How to test
 
-Explain how to use your project
+### Measure $t_{pd}$ of an inverter
+
+1. Connect `uo_out[0]` to your equipment to measure frequency.
+2. Turn on `ui_in[0]`.
+3. Measure the frequency.
+4. Calculate $t_{pd, inv} = \frac{1}{2 N f}$.
+
+### Measure $t_{pd}$ of a NAND2
+
+1. Connect `uo_out[1]` to your equipment to measure frequency.
+2. Turn on `ui_in[0]`.
+3. Measure the frequency.
+4. Calculate $t_{pd, NAND2} = \frac{1}{2 N f}$.
+
+### Measure $t_{clkq} + t_{setup}$
+
+1. Connect `ui_in[1]` to the oscillator that generates exactly 50 MHz.
+2. Turn off `ui_in[3]`.
+3. Turn off `ui_in[2]` to reset.
+4. Turn on `ui_in[2]`.
+5. Turn on `ui_in[3]` to start.
+6. Read `uio_out`.
+7. Calculate $t_{clkq} + t_{setup} = \frac{uio_out \times 20}{16} - 2 \times t_{pd, NAND2}$, where `t_{pd, NAND2}` is the value of the result $t_{pd}$ of NAND2.
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+* An equipment to measure frequency.
+* An oscillator that generates exactly 50 MHz.

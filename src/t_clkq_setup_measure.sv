@@ -12,7 +12,7 @@
 
 module t_clkq_setup_measure
 #(
-    parameter N = 16,          // Number of stages in the delay chain
+    parameter N = 16,           // Number of stages in the delay chain
     parameter CNT_WIDTH = 8     // Counter width
 )(
     input  logic clk,
