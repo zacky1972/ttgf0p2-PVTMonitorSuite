@@ -59,6 +59,6 @@ module tt_um_zacky1972_PVTMonitorSuite
   assign uio_oe      = 8'b1111_1111;
 
   // List all unused inputs to prevent warnings
-  assign uo_out[7] = &(ui_in[7:6], uio_in);
+  assign uo_out[7] = &({ui_in[7:6], uio_in});
 
 endmodule
