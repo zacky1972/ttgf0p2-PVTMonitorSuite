@@ -18,8 +18,9 @@ module tt_um_zacky1972_PVTMonitorSuite
     input  logic       rst_n     // reset_n - low to reset
 );
 
-  logic[7:0] measured_cnt;
+  logic[7:0] dff_measured_cnt;
   logic[7:0] skew_code;
+  logic[7:0] dice_dff_measured_cnt;
   logic clk_a;
 
   // Use the ring oscillator
@@ -40,19 +41,33 @@ module tt_um_zacky1972_PVTMonitorSuite
     .clk(ui_in[1]),
     .rst_n(ui_in[2]),
     .start(ui_in[3]),
-    .measured_cnt(measured_cnt)
+    .measured_cnt(dff_measured_cnt)
   );
 
   t_skew_tt #(.STAGES(64)) dut4
   (
     .clk_a(ui_in[1]),
-    .clk_b(ui_in[5]),
+    .clk_b(ui_in[4]),
     .rst_n(ui_in[2]),
     .skew_code(skew_code[6:0])
   );
 
+  dice_dff_t_clkq_setup_measure dut5
+  (
+    .clk(ui_in[1]),
+    .rst_n(ui_in[2]),
+    .start(ui_in[3]),
+    .measured_cnt(dice_dff_measured_cnt)
+  );
+
   assign skew_code[7] = 1'b0;
-  assign uio_out = (ui_in[4]) ? measured_cnt : skew_code;
+  
+  always_comb
+    case (ui_in[6:5])
+      2'b00: uio_out = dff_measured_cnt;
+      2'b01: uio_out = skew_code;
+      default: uio_out = dice_dff_measured_cnt;
+    endcase
 
   // Unused outputs must be tied
   assign uo_out[6:2] = 5'b0;

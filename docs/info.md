@@ -41,7 +41,7 @@ To meet TinyTapeout’s requirements, no standard cells from the GF180MCU D proc
 ### Measure $t_{clkq} + t_{setup}$
 
 1. Connect `ui_in[1]` to the oscillator that generates exactly 50 MHz.
-2. Turn on `ui_in[4]` to choose measurement of $t_{clkq} + t_{setup}$.
+2. Set `ui_in[6:5]` to 2'b0, to choose measurement of $t_{clkq} + t_{setup}$.
 3. Turn off `ui_in[3]`.
 4. Turn off `ui_in[2]` to reset.
 5. Turn on `ui_in[2]`.
@@ -52,8 +52,8 @@ To meet TinyTapeout’s requirements, no standard cells from the GF180MCU D proc
 ### Measure $t_{skew}$
 
 1. Connect `ui_in[1]` to the oscillator that generates exactly 50 MHz.
-2. Connect `ui_in[5]` to the oscillator of the target clock.
-2. Turn off `ui_in[4]` to choose measurement of $t_{skew}$.
+2. Connect `ui_in[4]` to the oscillator of the target clock.
+2. Set `ui_in[6:5]` to 2'b1, to choose measurement of $t_{skew}$.
 3. Turn off `ui_in[2]` to reset.
 4. Turn on `ui_in[2]` to start.
 5. Read `uio`.
