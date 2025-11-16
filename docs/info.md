@@ -46,8 +46,8 @@ To meet TinyTapeout’s requirements, no standard cells from the GF180MCU D proc
 4. Turn off `ui_in[2]` to reset.
 5. Turn on `ui_in[2]`.
 6. Turn on `ui_in[3]` to start.
-7. Read `uio_out`.
-8. Calculate $t_{clkq} + t_{setup} = \frac{uio\_out \times 20}{16} - 2 \times t_{pd, NAND2}$, where `t_{pd, NAND2}` is the result value of $t_{pd}$ of a NAND2.
+7. Read `uio`.
+8. Calculate $t_{clkq} + t_{setup} = \frac{uio \times 20}{16} - 2 \times t_{pd, NAND2}$, where $t_{pd, NAND2}$ is the result value of $t_{pd}$ of a NAND2.
 
 ### Measure $t_{skew}$
 
@@ -56,8 +56,8 @@ To meet TinyTapeout’s requirements, no standard cells from the GF180MCU D proc
 2. Turn off `ui_in[4]` to choose measurement of $t_{skew}$.
 3. Turn off `ui_in[2]` to reset.
 4. Turn on `ui_in[2]` to start.
-5. Read `uio_out`.
-6. Calculate $t_{skew} = uio\_out \times t_{pd, inv}$, where `t_{pd, inv}` is the result value of $t_{pd}$ of an inverter.
+5. Read `uio`.
+6. Calculate $t_{skew} = uio \times t_{pd, inv}$, where $t_{pd, inv}$ is the result value of $t_{pd}$ of an inverter.
 
 ## External hardware
 
