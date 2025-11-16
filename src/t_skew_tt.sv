@@ -25,7 +25,7 @@ module t_skew_tt #(
         for (i = 0; i < STAGES; i++)
             begin : gen_delay
                 // two inverters to stabilize optimization
-                logic d;
+                wire d;
                 (* keep = "true", dont_touch = "true" *) assign d        = ~chain[i];
                 (* keep = "true", dont_touch = "true" *) assign chain[i+1] = ~d;
             end
