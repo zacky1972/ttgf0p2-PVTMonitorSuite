@@ -13,9 +13,9 @@ PVTMonitorSuite integrates ring oscillators and flip-flop-based measurement circ
 
 The suite supports the following measurements:
 
-* An Inverter-based ring oscillator provides high-resolution estimates of gate propagation delay of an inverter ($t_{pd, INV}$).
+* An inverter-based ring oscillator provides high-resolution estimates of gate propagation delay of an inverter ($t_{pd, INV}$).
 * A NAND2-based ring oscillator provides high-resolution estimates of gate propagation delay of NAND2 ($t_{pd, NAND2}$).
-* Standard, DICE, LEAP-DICE, and Quatro D flip-flops measure clock-to-Q and setup timing ($t_{clkq} + t_{setup}$).
+* Standard, DICE, and LEAP-DICE D flip-flops measure clock-to-Q and setup timing ($t_{clkq} + t_{setup}$).
 * Clock skew timing ($t_{skew}$) is determined using XOR-based pulse width detection between two clock signals.
 
 High-speed counters driven by the ring oscillators convert these delays into digital values, enabling precise evaluation of process, voltage, and temperature variations on a fully digital, open-access platform.
