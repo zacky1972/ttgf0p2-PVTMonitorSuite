@@ -40,7 +40,7 @@ To meet TinyTapeout’s requirements, no standard cells from the GF180MCU PDK pr
 
 ### Measure $t_{clkq} + t_{setup}$ of standard D-FF
 
-1. Connect `ui_in[1]` to the oscillator that generates exactly 50 MHz.
+1. Connect `ui_in[1]` to a device that generates exactly 50 MHz.
 2. Set `ui_in[7:5]` to 3'b000, to choose measurement of $t_{clkq} + t_{setup}$.
 3. Turn off `ui_in[3]`.
 4. Turn off `ui_in[2]` to reset.
@@ -51,7 +51,7 @@ To meet TinyTapeout’s requirements, no standard cells from the GF180MCU PDK pr
 
 ### Measure $t_{clkq} + t_{setup}$ of DICE D-FF
 
-1. Connect `ui_in[1]` to the oscillator that generates exactly 50 MHz.
+1. Connect `ui_in[1]` to a device that generates exactly 50 MHz.
 2. Set `ui_in[7:5]` to 3'b001, to choose measurement of $t_{clkq} + t_{setup}$.
 3. Turn off `ui_in[3]`.
 4. Turn off `ui_in[2]` to reset.
@@ -62,7 +62,7 @@ To meet TinyTapeout’s requirements, no standard cells from the GF180MCU PDK pr
 
 ### Measure $t_{clkq} + t_{setup}$ of Leap DICE D-FF
 
-1. Connect `ui_in[1]` to the oscillator that generates exactly 50 MHz.
+1. Connect `ui_in[1]` to a device that generates exactly 50 MHz.
 2. Set `ui_in[7:5]` to 3'b011, to choose measurement of $t_{clkq} + t_{setup}$.
 3. Turn off `ui_in[3]`.
 4. Turn off `ui_in[2]` to reset.
@@ -73,8 +73,8 @@ To meet TinyTapeout’s requirements, no standard cells from the GF180MCU PDK pr
 
 ### Measure $t_{skew}$
 
-1. Connect `ui_in[1]` to the oscillator that generates exactly 50 MHz.
-2. Connect `ui_in[4]` to the oscillator of the target clock.
+1. Connect `ui_in[1]` to a device that generates exactly 50 MHz.
+2. Connect `ui_in[4]` to a device of the target clock.
 2. Set `ui_in[7:5]` to 3'b100, to choose measurement of $t_{skew}$.
 3. Turn off `ui_in[2]` to reset.
 4. Turn on `ui_in[2]` to start.
@@ -85,4 +85,4 @@ To meet TinyTapeout’s requirements, no standard cells from the GF180MCU PDK pr
 
 * An equipment to measure frequency.
 * A device that generates a precise 50 MHz signal, such as a ceramic resonator.
-* An oscillator that generates the target clock.
+* A device that generates the target clock.
