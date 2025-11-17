@@ -20,7 +20,7 @@ The suite supports the following measurements:
 
 High-speed counters driven by the ring oscillators convert these delays into digital values, enabling precise evaluation of process, voltage, and temperature variations on a fully digital, open-access platform.
 
-To meet TinyTapeout’s requirements, no standard cells from the GF180MCU D process are used, and the design passes all strict error and warning checks.
+To meet TinyTapeout’s requirements, no standard cells from the GF180MCU PDK process are used, and the design passes all strict error and warning checks.
 
 ## How to test
 
