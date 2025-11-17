@@ -84,5 +84,5 @@ To meet TinyTapeout’s requirements, no standard cells from the GF180MCU D proc
 ## External hardware
 
 * An equipment to measure frequency.
-* An oscillator that generates exactly 50 MHz.
+* A device that generates a precise 50 MHz signal, such as a ceramic resonator.
 * An oscillator that generates the target clock.
