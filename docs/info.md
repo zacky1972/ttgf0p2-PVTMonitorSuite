@@ -29,14 +29,14 @@ To meet TinyTapeout’s requirements, no standard cells from the GF180MCU PDK pr
 1. Connect `uo_out[0]` to your equipment to measure frequency.
 2. Turn on `ui_in[0]`.
 3. Measure the frequency.
-4. Calculate $t_{pd, INV} = \frac{1}{32 N f}$.
+4. Calculate $t_{pd, INV} = \frac{1}{32 \times 51 \times f}$.
 
 ### Measure $t_{pd, NAND2}$ 
 
 1. Connect `uo_out[1]` to your equipment to measure frequency.
 2. Turn on `ui_in[0]`.
 3. Measure the frequency.
-4. Calculate $t_{pd, NAND2} = \frac{1}{32 N f}$.
+4. Calculate $t_{pd, NAND2} = \frac{1}{32 \times 41 \times f}$.
 
 ### Measure $t_{clkq} + t_{setup}$ of standard D-FF
 
