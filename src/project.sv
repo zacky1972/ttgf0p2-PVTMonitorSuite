@@ -23,18 +23,34 @@ module tt_um_zacky1972_PVTMonitorSuite
   logic[7:0] dice_dff_measured_cnt;
   logic[7:0] leap_dice_dff_measured_cnt;
   logic clk_a;
+  logic clk_inv;
+  logic clk_nand2;
 
   // Use the ring oscillator
-  inv_ring_osc dut1
+  inv_ring_osc dut1a
   (
     .ena(ui_in[0]),
-    .osc_out(uo_out[0])
+    .osc_out(clk_inv)
   );
 
-  nand2_ring_osc dut2
+  devide_by_16 dut1b
+  (
+    .clk_in(clk_inv),
+    .rst_n(rst_n),
+    .clk_out(uo_out[0])
+  );
+
+  nand2_ring_osc dut2a
   (
     .ena(ui_in[0]),
-    .osc_out(uo_out[1])
+    .osc_out(clk_nand2)
+  );
+
+  devide_by_16 dut2b
+  (
+    .clk_in(clk_nand2),
+    .rst_n(rst_n),
+    .clk_out(uo_out[1])
   );
 
   t_clkq_setup_measure dut3
