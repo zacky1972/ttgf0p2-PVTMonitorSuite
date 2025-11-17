@@ -33,7 +33,7 @@ module tt_um_zacky1972_PVTMonitorSuite
     .osc_out(clk_inv)
   );
 
-  devide_by_16 dut1b
+  divide_by_16 dut1b
   (
     .clk_in(clk_inv),
     .rst_n(rst_n),
@@ -46,7 +46,7 @@ module tt_um_zacky1972_PVTMonitorSuite
     .osc_out(clk_nand2)
   );
 
-  devide_by_16 dut2b
+  divide_by_16 dut2b
   (
     .clk_in(clk_nand2),
     .rst_n(rst_n),
