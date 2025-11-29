@@ -45,6 +45,7 @@ module nand2_ring_osc
     genvar i;
     generate
         for (i = 0; i < DEPTH*2; i = i + 1) begin : gen_nand2
+            (* keep = "true", dont_touch = "true" *)
             nand2 nand2_i (
                 .a(nand_in[i]),
                 .b(ena),
@@ -55,6 +56,7 @@ module nand2_ring_osc
     endgenerate
 
     // last stage
+    (* keep = "true", dont_touch = "true" *)
     nand2 nand2_last (
         .a(nand_in[DEPTH*2]),
         .b(ena),
@@ -62,6 +64,7 @@ module nand2_ring_osc
     );
 
     // loop back
+    (* keep = "true", dont_touch = "true" *)
     assign nand_in[0] = nand_out[DEPTH*2];
 
     assign osc_out = nand_in[0];
