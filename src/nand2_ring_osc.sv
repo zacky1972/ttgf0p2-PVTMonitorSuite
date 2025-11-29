@@ -64,7 +64,9 @@ module nand2_ring_osc
     );
 
     // loop back
-    assign nand_in[0] = nand_out[DEPTH*2];
+    (* keep = "true", dont_touch = "true" *) logic fb;
+    assign nand_in[0] = fb;
+    assign fb = nand_out[DEPTH*2];
 
     assign osc_out = nand_in[0];
 endmodule
