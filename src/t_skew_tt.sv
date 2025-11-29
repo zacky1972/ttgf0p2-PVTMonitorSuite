@@ -14,7 +14,9 @@ module t_skew_tt #(
     output logic [ ($clog2(STAGES + 1) - 1) : 0 ] skew_code
 );
 
+    // verilator lint_off UNOPTFLAT
     (* keep = "true", dont_touch = "true" *) logic [STAGES:0] chain;
+    // verilator lint_on UNOPTFLAT
     (* keep = "true", dont_touch = "true" *) logic [STAGES:0] sampled;
 
 // delay chain

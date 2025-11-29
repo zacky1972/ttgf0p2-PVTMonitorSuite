@@ -13,7 +13,9 @@ module tt_um_zacky1972_PVTMonitorSuite
     input  logic [7:0] uio_in,   // IOs: Input path
     output logic [7:0] uio_out,  // IOs: Output path
     output logic [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
+    /* verilator lint_off UNUSEDSIGNAL */
     input  logic       ena,      // always 1 when the design is powered, so you can ignore it
+    /* verilator lint_off UNUSEDSIGNAL */
     input  logic       clk,      // clock
     input  logic       rst_n     // reset_n - low to reset
 );
@@ -22,7 +24,6 @@ module tt_um_zacky1972_PVTMonitorSuite
   logic[7:0] skew_code;
   logic[7:0] dice_dff_measured_cnt;
   logic[7:0] leap_dice_dff_measured_cnt;
-  logic clk_a;
   logic clk_inv;
   logic clk_nand2;
 
